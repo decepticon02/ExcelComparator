@@ -163,7 +163,7 @@ for tab_name in tabs_info:
 
     trees[tab_name] = tree
 
-tree_nepostojeci = trees["Непостојећи ID-ови"]
+tree_nepostojeci = trees["Непостојећи ID-eви"]
 tree_osn_os = trees["Неподударни Oсновица OС"]
 tree_pdv_os = trees["Неподударни ПДВ OС"]
 tree_osn_ns = trees["Неподударни Oсновица НС"]
