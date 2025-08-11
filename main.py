@@ -137,7 +137,7 @@ notebook.pack(fill="both", expand=True, padx=30, pady=10)
 
 # Create one tab per category
 tabs_info = {
-    "Непостојећи ID-ови": None,
+    "Непостојећи ID-eви": None,
     "Неподударни Oсновица OС": None,
     "Неподударни ПДВ OС": None,
     "Неподударни Oсновица НС": None,
