@@ -4,6 +4,7 @@ import tkinter as tk
 from tkinter import messagebox
 from comparator import start_comparison
 from pathlib import Path
+from tkinter import filedialog
 
 valid_files = {"left": None, "right": None}
 
@@ -69,6 +70,20 @@ def on_btn1_click():
     except Exception as e:
         messagebox.showerror("Грешка", str(e))
 
+# Handling file explorer selection
+def choose_file_left():
+    filepath = filedialog.askopenfilename(filetypes=[("Excel files", "*.xlsx *.xls")])
+    if filepath:
+        event = type("Event", (object,), {"data": filepath})()
+        handle_drop_left(event)
+
+def choose_file_right():
+    filepath = filedialog.askopenfilename(filetypes=[("Excel files", "*.xlsx *.xls")])
+    if filepath:
+        event = type("Event", (object,), {"data": filepath})()
+        handle_drop_right(event)
+
+
 root = TkinterDnD.Tk()
 root.title("Excel Comparator")
 root.geometry("900x650")
@@ -115,6 +130,11 @@ small_box_left.drop_target_register(DND_FILES)
 small_box_left.dnd_bind('<<Drop>>', handle_drop_left)
 path_sef = tk.Label(left_top, text="Путaњa до SEF датотеке", font=("Arial", 9), bg="#f0f0f0")
 path_sef.pack()
+# Button to choose SEF file
+btn_choose_left = tk.Button(left_top, text="Изабери SEF датотеку", font=("Arial", 10),
+                            command=choose_file_left, bg="#3498db", fg="white", relief="flat")
+btn_choose_left.pack(pady=5)
+
 
 # Right drag-drop area
 tk.Label(right_top, text="Овде превуци Excel датотеку за проверу", font=("Arial", 12, "bold"), bg="#f0f0f0").pack()
@@ -124,6 +144,11 @@ small_box_right.drop_target_register(DND_FILES)
 small_box_right.dnd_bind('<<Drop>>', handle_drop_right)
 path_comp = tk.Label(right_top, text="Путaњa до датотеке за проверу", font=("Arial", 9), bg="#f0f0f0")
 path_comp.pack()
+
+# Button to choose comparison file
+btn_choose_right = tk.Button(right_top, text="Изабери датотеку за проверу", font=("Arial", 10),
+                             command=choose_file_right, bg="#3498db", fg="white", relief="flat")
+btn_choose_right.pack(pady=5)
 
 # Bottom section: Button on top and centered
 btn1 = tk.Button(bottom_frame, text="Провери", width=15, state="disabled", command=on_btn1_click,

@@ -42,33 +42,30 @@ def start_comparison(sef_path, compare_path):
     nepostojeci_kljucevi={ k: v for k, v in {**map_sef_fakt_osnovicaOS,**map_fakt_osnovicaOS}.items()
                           if k  not in map_sef_fakt_osnovicaOS or k not in map_fakt_osnovicaOS
                           }
-    
-    nepodudarni_kljucevi_osn_os= {
-        k: map_sef_fakt_osnovicaOS[k] -map_fakt_osnovicaOS[k]
-        
-        for k in map_sef_fakt_osnovicaOS.keys() & map_fakt_osnovicaOS.keys()
-        if(map_sef_fakt_osnovicaOS[k]!=map_fakt_osnovicaOS[k])
+    nepodudarni_kljucevi_osn_os = {
+    k: round(round(map_sef_fakt_osnovicaOS[k], 2) - round(map_fakt_osnovicaOS[k], 2), 2)
+    for k in map_sef_fakt_osnovicaOS.keys() & map_fakt_osnovicaOS.keys()
+    if round(map_sef_fakt_osnovicaOS[k], 2) != round(map_fakt_osnovicaOS[k], 2)
     }
-    nepodudarni_kljucevi_pdv_os= {
-        k: map_sef_fakt_PDVOS[k] -map_fakt_PDVOS[k]
-        
+
+    nepodudarni_kljucevi_pdv_os = {
+        k: round(round(map_sef_fakt_PDVOS[k], 2) - round(map_fakt_PDVOS[k], 2), 2)
         for k in map_sef_fakt_PDVOS.keys() & map_fakt_PDVOS.keys()
-        if(map_sef_fakt_PDVOS[k]!=map_fakt_PDVOS[k])
+        if round(map_sef_fakt_PDVOS[k], 2) != round(map_fakt_PDVOS[k], 2)
     }
-    
-    nepodudarni_kljucevi_osn_ns= {
-        k: map_sef_fakt_osnovicaNS[k] -map_fakt_osnovicaNS[k]
-        
+
+    nepodudarni_kljucevi_osn_ns = {
+        k: round(round(map_sef_fakt_osnovicaNS[k], 2) - round(map_fakt_osnovicaNS[k], 2), 2)
         for k in map_sef_fakt_osnovicaNS.keys() & map_fakt_osnovicaNS.keys()
-        if(map_sef_fakt_osnovicaNS[k]!=map_fakt_osnovicaNS[k])
+        if round(map_sef_fakt_osnovicaNS[k], 2) != round(map_fakt_osnovicaNS[k], 2)
     }
-    
-    nepodudarni_kljucevi_pdv_ns= {
-        k: map_sef_fakt_PDVNS[k] -map_fakt_PDVNS[k]
-        
+
+    nepodudarni_kljucevi_pdv_ns = {
+        k: round(round(map_sef_fakt_PDVNS[k], 2) - round(map_fakt_PDVNS[k], 2), 2)
         for k in map_sef_fakt_PDVNS.keys() & map_fakt_PDVNS.keys()
-        if(map_sef_fakt_PDVNS[k]!=map_fakt_PDVNS[k])
+        if round(map_sef_fakt_PDVNS[k], 2) != round(map_fakt_PDVNS[k], 2)
     }
+
     
     return nepodudarni_kljucevi_osn_os,nepodudarni_kljucevi_pdv_os,nepodudarni_kljucevi_osn_ns,nepodudarni_kljucevi_pdv_ns,nepostojeci_kljucevi
 
