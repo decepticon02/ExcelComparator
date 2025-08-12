@@ -113,7 +113,7 @@ small_box_left = tk.Label(left_top, width=40, height=15, bg="white", relief="sol
 small_box_left.pack(pady=10)
 small_box_left.drop_target_register(DND_FILES)
 small_box_left.dnd_bind('<<Drop>>', handle_drop_left)
-path_sef = tk.Label(left_top, text="путanja до SEF датотеке", font=("Arial", 9), bg="#f0f0f0")
+path_sef = tk.Label(left_top, text="Путaњa до SEF датотеке", font=("Arial", 9), bg="#f0f0f0")
 path_sef.pack()
 
 # Right drag-drop area
@@ -122,7 +122,7 @@ small_box_right = tk.Label(right_top, width=40, height=15, bg="white", relief="s
 small_box_right.pack(pady=10)
 small_box_right.drop_target_register(DND_FILES)
 small_box_right.dnd_bind('<<Drop>>', handle_drop_right)
-path_comp = tk.Label(right_top, text="Путanja до датотеке за проверу", font=("Arial", 9), bg="#f0f0f0")
+path_comp = tk.Label(right_top, text="Путaњa до датотеке за проверу", font=("Arial", 9), bg="#f0f0f0")
 path_comp.pack()
 
 # Bottom section: Button on top and centered
