@@ -2,3 +2,4 @@ openpyxl
 pandas
 tkinterdnd2
 pyinstaller
+xlrd

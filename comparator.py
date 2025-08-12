@@ -14,11 +14,11 @@ def start_comparison(sef_path, compare_path):
 
     compare_file = pd.read_excel(compare_path)
     
-    ime_kolone_id_sef = "ID fakture" if "ID fakture" in sef_file.columns else "ID efakture" if "ID efakture" in sef_file.columns else None
+    ime_kolone_id_sef = "ID fakture" if "ID fakture" in sef_file.columns else "ID efakture" if "ID efakture" in sef_file.columns else "ID" if "ID" in sef_file.columns else None
     if ime_kolone_id_sef is None:
         raise ValueError("Промени име колоне у 'ID fakture' или 'ID efakture' у SEF датотеци. И пробај поново.")
 
-    ime_kolone_id_compare = "ID fakture" if "ID fakture" in compare_file.columns else "ID efakture" if "ID efakture" in compare_file.columns else None
+    ime_kolone_id_compare = "ID fakture" if "ID fakture" in compare_file.columns else "ID efakture" if "ID efakture" in compare_file.columns else "ID" if "ID" in sef_file.columns else None
     if ime_kolone_id_compare is None:
         raise ValueError("Промени име колоне у 'ID fakture' или 'ID efakture' у датотеци која се упоређује. И пробај поново.")
 
